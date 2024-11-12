@@ -3,6 +3,7 @@ package ru.ucheba.hw1
 import android.os.Bundle
 import ru.ucheba.hw1.base.BaseActivity
 import ru.ucheba.hw1.screens.main_screens_fragment.FirstScreenFragment
+import ru.ucheba.hw1.screens.main_screens_fragment.SecondScreenFragment
 
 class MainActivity : BaseActivity() {
     override val mainContainerId: Int = R.id.main_fragment_container
@@ -15,6 +16,8 @@ class MainActivity : BaseActivity() {
             destination = FirstScreenFragment.getInstance(),
             destinationTag = FirstScreenFragment.TAG)
     }
+
+
 
     private var data: String? = null
 

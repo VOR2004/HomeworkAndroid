@@ -15,6 +15,8 @@ class SecondScreenFragment: Fragment(R.layout.fragment_screen_second) {
         super.onViewCreated(view, savedInstanceState)
         initViews()
     }
+
+
     private fun initViews() {
         val act = (requireActivity() as? MainActivity)
         with(viewBinding) {

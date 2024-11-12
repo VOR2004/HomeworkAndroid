@@ -8,6 +8,7 @@ import ru.ucheba.hw1.MainActivity
 import ru.ucheba.hw1.R
 import ru.ucheba.hw1.base.NavigationAction
 import ru.ucheba.hw1.databinding.FragmentScreenFirstBinding
+import ru.ucheba.hw1.screens.bottom_sheet.BottomSheetFragment
 
 class FirstScreenFragment: Fragment(R.layout.fragment_screen_first) {
     private val viewBinding: FragmentScreenFirstBinding by viewBinding(FragmentScreenFirstBinding::bind)
@@ -16,6 +17,7 @@ class FirstScreenFragment: Fragment(R.layout.fragment_screen_first) {
         super.onViewCreated(view, savedInstanceState)
         initViews()
     }
+
 
     private fun initViews() {
         val act = (requireActivity() as? MainActivity)
@@ -44,7 +46,18 @@ class FirstScreenFragment: Fragment(R.layout.fragment_screen_first) {
                     action = NavigationAction.REPLACE
                 )
             }
+
+            buttonBs.setOnClickListener {
+                val dialog = BottomSheetFragment().apply {
+                    isCancelable = true
+                }
+                dialog.show(childFragmentManager, BottomSheetFragment.TAG)
+            }
         }
+    }
+
+    fun passData(text: String?) {
+        viewBinding.textInputEt.setText(text)
     }
 
     companion object {

@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("ru.ucheba.myapplication", appContext.packageName)
+        assertEquals("ru.ucheba.hw1", appContext.packageName)
     }
 }
