@@ -1,4 +1,4 @@
-package ru.ucheba.hw1
+package ru.ucheba.myapplication
 
 import org.junit.Test
 
