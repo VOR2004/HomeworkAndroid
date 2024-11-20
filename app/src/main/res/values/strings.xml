@@ -1,8 +1,3 @@
 <resources>
     <string name="app_name">My Application</string>
-    <string name="to_second_screen">To second screen</string>
-    <string name="to_third_screen">To third screen</string>
-    <string name="sample_text">Sample text</string>
-    <string name="to_bottom_sheet">To bottom sheet</string>
-    <string name="send">Send</string>
 </resources>
