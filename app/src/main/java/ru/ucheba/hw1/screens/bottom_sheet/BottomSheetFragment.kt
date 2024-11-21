@@ -2,17 +2,15 @@ package ru.ucheba.hw1.screens.bottom_sheet
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
-import androidx.core.widget.doOnTextChanged
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import ru.ucheba.hw1.MainActivity
 import ru.ucheba.hw1.R
 import ru.ucheba.hw1.databinding.FragmentBottomSheetBinding
 import ru.ucheba.hw1.model.MultipleHoldersData
 import ru.ucheba.hw1.model.SecondHolderData
 import ru.ucheba.hw1.multipleTypesList.MultipleTypesFragment
 import ru.ucheba.hw1.repository.ScreensContentRepository
+import ru.ucheba.hw1.utils.StringUtils
 
 class BottomSheetFragment: BottomSheetDialogFragment(R.layout.fragment_bottom_sheet) {
 
@@ -35,7 +33,7 @@ class BottomSheetFragment: BottomSheetDialogFragment(R.layout.fragment_bottom_sh
                 if (text != null) {
                     repeat(text) {
                         list.add((1..list.size).random() , SecondHolderData(
-                            id = "${list.size}",
+                            id = StringUtils().getRandomString(100000),
                             headerText = headers[headers.indices.random()],
                             descText = descs[descs.indices.random()],
                             imageUrl = image[image.indices.random()],
@@ -65,7 +63,7 @@ class BottomSheetFragment: BottomSheetDialogFragment(R.layout.fragment_bottom_sh
 
             buttonAdd.setOnClickListener {
                 list.add((1..list.size).random() , SecondHolderData(
-                    id = "${list.size}",
+                    id = StringUtils().getRandomString(100000),
                     headerText = headers[headers.indices.random()],
                     descText = descs[descs.indices.random()],
                     imageUrl = image[image.indices.random()],

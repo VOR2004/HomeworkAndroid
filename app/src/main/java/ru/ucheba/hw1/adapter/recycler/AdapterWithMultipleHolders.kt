@@ -20,6 +20,7 @@ class AdapterWithMultipleHolders(
     items: List<MultipleHoldersData>,
     private val onButtonClickLinear: () -> Unit,
     private val onButtonClickGrid: () -> Unit,
+    private val onLongClick: (MultipleHoldersData) -> Unit,
     private val action: (SecondHolderData) -> Unit,
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -52,7 +53,8 @@ class AdapterWithMultipleHolders(
                         false
                     ),
                     requestManager = requestManager,
-                    action = action
+                    action = action,
+                    onLongClick = onLongClick
                 )
             }
 

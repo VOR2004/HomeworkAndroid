@@ -4,19 +4,17 @@ package ru.ucheba.hw1.ui.viewholder
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.RequestManager
 import ru.ucheba.hw1.databinding.ItemListBinding
+import ru.ucheba.hw1.model.MultipleHoldersData
 import ru.ucheba.hw1.model.SecondHolderData
 
 class ImageViewHolder(
     val viewBinding: ItemListBinding,
     private val requestManager: RequestManager,
-    private val action: (SecondHolderData) -> Unit
+    private val action: (SecondHolderData) -> Unit,
+    private var onLongClick: (MultipleHoldersData) -> Unit,
 ) : RecyclerView.ViewHolder(viewBinding.root) {
 
-//    init {
-//        viewBinding.root.setOnClickListener {
-//            action.invoke(adapterPosition)
-//        }
-//    }
+
 
     fun bindItem(itemData: SecondHolderData) {
         with(viewBinding) {
@@ -27,12 +25,11 @@ class ImageViewHolder(
             root.setOnClickListener {
                 action.invoke(itemData)
             }
+            root.setOnLongClickListener {
+                onLongClick.invoke(itemData)
+                true
+            }
         }
-
-       // viewBinding.divider.isVisible = adapterPosition != count - 1
-
-
-        //viewBinding.root.setBackgroundColor(itemData.background)
     }
 
 }

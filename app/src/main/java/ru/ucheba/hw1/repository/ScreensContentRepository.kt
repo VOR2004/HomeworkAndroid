@@ -1,8 +1,5 @@
 package ru.ucheba.hw1.repository
 
-import android.content.Context
-import androidx.core.content.ContextCompat
-import ru.ucheba.hw1.R
 import ru.ucheba.hw1.model.FirstHolderData
 import ru.ucheba.hw1.model.MultipleHoldersData
 import ru.ucheba.hw1.model.SecondHolderData
@@ -89,7 +86,8 @@ object ScreensContentRepository {
             id = "2",
             headerText = "Maya",
             imageUrl = "https://avatars.mds.yandex.net/i?id=c7c24a293c67e134037ba9ac6a161b21_l-7084983-images-thumbs&n=13",
-            descText = "I wear gucci and prada i am SO COOL"
+            descText = "I wear gucci and prada i am SO COOL",
+
         ),
         SecondHolderData(
             id = "3",
