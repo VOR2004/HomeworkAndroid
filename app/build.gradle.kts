@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "ru.ucheba.myapplication"
+    namespace = "ru.ucheba.hw1"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "ru.ucheba.myapplication"
+        applicationId = "ru.ucheba.hw1"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -33,6 +33,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -41,6 +45,8 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
+    implementation(libs.glide)
+    implementation (libs.github.viewbindingpropertydelegate.noreflection)
     implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
