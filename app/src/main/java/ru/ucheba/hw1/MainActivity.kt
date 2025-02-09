@@ -14,7 +14,7 @@ import ru.ucheba.hw1.screens.compose.App
 
 class MainActivity : ComponentActivity() {
 
-    class UserViewModelFactory(val application: Application) :
+    class UserViewModelFactory(private val application: Application) :
         ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return AppViewModel(application) as T
@@ -29,7 +29,7 @@ class MainActivity : ComponentActivity() {
             owner?.let {
                 val viewModel: AppViewModel = viewModel(
                     it,
-                    "UserViewModel",
+                    KeyNames.KEY_VM,
                     UserViewModelFactory(LocalContext.current.applicationContext as Application)
                 )
                 App(viewModel)
