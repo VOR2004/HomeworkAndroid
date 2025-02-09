@@ -38,7 +38,7 @@ object AuthUtils {
 
     fun hashPasswordPBKDF2(rawPassword: String?): String {
         if (rawPassword == null) {
-            throw IllegalArgumentException("Password cannot be null")
+            throw IllegalArgumentException()
         }
 
         val salt = generateSalt()
