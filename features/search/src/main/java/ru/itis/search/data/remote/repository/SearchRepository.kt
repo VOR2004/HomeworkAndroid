@@ -17,7 +17,7 @@ class SearchRepository @Inject constructor(
     private val localWeatherCacheMapper: LocalWeatherCacheMapper
 ) {
     companion object {
-        private const val CACHE_LIFETIME_MS = 0.5 * 60 * 1000L
+        private const val CACHE_LIFETIME_MS = 5 * 60 * 1000L
         private const val MAX_QUERIES = 3
     }
 
