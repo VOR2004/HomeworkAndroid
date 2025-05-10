@@ -7,4 +7,5 @@ plugins {
     id("com.google.devtools.ksp") version "2.1.20-2.0.0" apply false
     id("com.google.dagger.hilt.android") version "2.56.2" apply false
     id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin") version "2.0.1" apply false
+    alias(libs.plugins.android.library) apply false
 }

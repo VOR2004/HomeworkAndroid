@@ -33,11 +33,6 @@ android {
         }
     }
 
-    defaultConfig {
-        buildConfigField("String", "WEATHER_API_KEY", "\"${properties["WEATHER_API_KEY"]}\"")
-    }
-
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -47,7 +42,6 @@ android {
     }
     buildFeatures {
         compose = true
-        buildConfig = true
     }
 }
 
@@ -77,11 +71,9 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.androidx.navigation.compose)
 
-    implementation(libs.retrofit)
-    implementation(libs.converter.kotlinx.serialization)
-    implementation(libs.converter.scalars)
-    implementation(libs.okhttp)
+    implementation(project(":features:search"))
+    implementation(project(":features:weatherdetails"))
+    implementation(project(":features:weatherlist"))
 
-    implementation(libs.converter.gson)
-    implementation(libs.logging.interceptor)
+    implementation(project(":core:domain"))
 }
