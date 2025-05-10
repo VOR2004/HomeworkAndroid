@@ -1,5 +1,7 @@
 package ru.itis.myapplication.app.navigation
 
+import MainScreen
+import WeatherDetailsScreen
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -20,6 +22,9 @@ fun SetupNavGraph(navController: NavHostController) {
                 onSearchClick = {
                     navController.navigate(Routes.Search)
                 })
+            MainScreen(onItemClick = { weather ->
+                navController.navigate(Routes.Details(weather.cityName))
+            })
         }
         composable<Routes.Details> { backStackEntry ->
             val args = backStackEntry.toRoute<Routes.Details>()

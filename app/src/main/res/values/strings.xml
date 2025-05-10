@@ -8,6 +8,7 @@
     <string name="pressure">Weather pressure, hPa:&#160;</string>
     <string name="description">Description:&#160;</string>
     <string name="city_naming">City name</string>
+    <string name="city_name">City name</string>
     <string name="cancel">Cancel</string>
     <string name="add">Add</string>
 </resources>
