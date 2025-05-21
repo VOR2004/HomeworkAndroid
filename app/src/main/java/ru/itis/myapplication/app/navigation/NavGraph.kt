@@ -5,6 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
+import ru.itis.graphic.presentation.screens.GraphScreen
 import ru.itis.search.presentation.ui.screens.SearchScreen
 import ru.itis.weatherdetails.presentation.ui.screens.WeatherDetailsScreen
 import ru.itis.weatherlist.presentation.ui.screens.MainScreen
@@ -19,6 +20,9 @@ fun SetupNavGraph(navController: NavHostController) {
                 },
                 onSearchClick = {
                     navController.navigate(Routes.Search)
+                },
+                onCreateGraphicClick = {
+                    navController.navigate(Routes.Graphic)
                 })
         }
         composable<Routes.Details> { backStackEntry ->
@@ -30,6 +34,10 @@ fun SetupNavGraph(navController: NavHostController) {
         }
         composable<Routes.Search> {
             SearchScreen(onBack = { navController.popBackStack() })
+        }
+
+        composable<Routes.Graphic> {
+            GraphScreen(onBack = { navController.popBackStack() })
         }
     }
 }

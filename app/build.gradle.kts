@@ -79,6 +79,7 @@ dependencies {
     implementation(project(":features:search"))
     implementation(project(":features:weatherdetails"))
     implementation(project(":features:weatherlist"))
+    implementation(project(":features:graphic"))
 
     implementation(project(":core:domain"))
 }

@@ -12,4 +12,7 @@ sealed class Routes {
 
     @Serializable
     object Search : Routes()
+
+    @Serializable
+    object Graphic : Routes()
 }
