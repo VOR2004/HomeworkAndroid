@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="city_name">City name</string>
+    <string name="cancel">Cancel</string>
+    <string name="add">Add</string>
+    <string name="temperature">Temperature, °C:&#160;</string>
+    <string name="description">Description:&#160;</string>
+    <string name="default_description">Description</string>
+</resources>

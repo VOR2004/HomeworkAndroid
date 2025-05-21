@@ -9,4 +9,10 @@ sealed class Routes {
 
     @Serializable
     data class Details(val city: String) : Routes()
+
+    @Serializable
+    object Search : Routes()
+
+    @Serializable
+    object Graphic : Routes()
 }
