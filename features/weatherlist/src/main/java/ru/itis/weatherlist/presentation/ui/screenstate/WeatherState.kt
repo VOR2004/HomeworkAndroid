@@ -11,5 +11,6 @@ data class WeatherState(
     val weatherList: ImmutableList<Weather> = persistentListOf(),
     val isLoading: Boolean = false,
     val error: String? = null,
-    val showAddCityDialog: Boolean = false
+    val showAddCityDialog: Boolean = false,
+    val isFeatureEnabled: Boolean = false
 )

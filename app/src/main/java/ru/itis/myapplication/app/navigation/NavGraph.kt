@@ -13,7 +13,7 @@ import ru.itis.weatherlist.presentation.ui.screens.MainScreen
 @Composable
 fun SetupNavGraph(navController: NavHostController) {
     NavHost(navController = navController, startDestination = Routes.Main) {
-        composable<Routes.Main> {
+        composable<Routes.Main> { backStackEntry ->
             MainScreen(
                 onItemClick = { weather ->
                     navController.navigate(Routes.Details(weather.cityName))

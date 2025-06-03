@@ -7,6 +7,8 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.serialization)
     id("kotlin-parcelize")
     id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
+    id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
 }
 
 android {
@@ -60,6 +62,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.firebase.messaging.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -75,6 +78,9 @@ dependencies {
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.androidx.navigation.compose)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.crashlytics)
 
     implementation(project(":features:search"))
     implementation(project(":features:weatherdetails"))
@@ -82,4 +88,7 @@ dependencies {
     implementation(project(":features:graphic"))
 
     implementation(project(":core:domain"))
+    implementation(project(":core:di"))
+    implementation(project(":core:data"))
+    implementation(project(":core:utils"))
 }

@@ -62,6 +62,8 @@ dependencies {
     ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
 
+    implementation(libs.firebase.config.ktx)
+
     implementation(project(":core:data"))
     implementation(project(":core:domain"))
     implementation(project(":core:utils"))

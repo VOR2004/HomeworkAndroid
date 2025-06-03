@@ -1,11 +1,14 @@
 package ru.itis.search.data.remote.repository
 
+import com.google.firebase.crashlytics.ktx.crashlytics
+import com.google.firebase.ktx.Firebase
 import retrofit2.HttpException
 import ru.itis.data.api.WeatherApi
 import ru.itis.data.local.dao.CityWeatherCacheDao
 import ru.itis.domain.mappers.WeatherMapper
 import ru.itis.domain.model.Weather
 import ru.itis.search.data.local.mappers.LocalWeatherCacheMapper
+import ru.itis.utils.constants.CrashlyticsKeys
 import ru.itis.utils.exceptions.AppException
 import java.net.UnknownHostException
 import javax.inject.Inject
@@ -24,6 +27,8 @@ class SearchRepository @Inject constructor(
     private var isLastResultFromCache = false
 
     suspend fun searchWeather(city: String): Result<Weather> {
+        Firebase.crashlytics.setCustomKey(CrashlyticsKeys.CITY, city)
+
         val key = city.trim().lowercase()
         val now = System.currentTimeMillis()
         val cache = dao.getByCityKey(key)
@@ -69,7 +74,8 @@ class SearchRepository @Inject constructor(
                 isLastResultFromCache = false
                 Result.failure(appException)
             }
-        } catch (_: Exception) {
+        } catch (e: Exception) {
+            Firebase.crashlytics.recordException(e)
             if (cache != null) {
                 isLastResultFromCache = true
                 Result.success(localWeatherCacheMapper.toDomain(cache))

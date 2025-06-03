@@ -64,6 +64,11 @@ dependencies {
     implementation(libs.converter.scalars)
     implementation(libs.kotlinx.collections.immutable)
 
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.crashlytics)
+    implementation(libs.firebase.config.ktx)
+
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
 

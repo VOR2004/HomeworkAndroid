@@ -93,7 +93,13 @@ fun MainScreen(
                 state.value.isLoading -> WeatherListShimmer()
                 state.value.weatherList.isNotEmpty() -> WeatherList(
                     items = state.value.weatherList,
-                    onItemClick = onItemClick
+                    onItemClick = { item ->
+                        if (state.value.isFeatureEnabled) {
+                            onItemClick(item)
+                        } else {
+                            viewModel.showToast()
+                        }
+                    }
                 )
             }
 

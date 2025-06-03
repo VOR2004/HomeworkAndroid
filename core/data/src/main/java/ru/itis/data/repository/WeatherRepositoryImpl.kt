@@ -1,5 +1,7 @@
 package ru.itis.data.repository
 
+import com.google.firebase.crashlytics.ktx.crashlytics
+import com.google.firebase.ktx.Firebase
 import retrofit2.HttpException
 import ru.itis.data.api.WeatherApi
 import ru.itis.domain.mappers.WeatherDetailsMapper
@@ -7,6 +9,7 @@ import ru.itis.domain.mappers.WeatherMapper
 import ru.itis.domain.model.Weather
 import ru.itis.domain.model.WeatherDetails
 import ru.itis.domain.repository.WeatherRepository
+import ru.itis.utils.constants.CrashlyticsKeys
 import ru.itis.utils.exceptions.AppException
 import java.net.UnknownHostException
 import javax.inject.Inject
@@ -31,7 +34,9 @@ class WeatherRepositoryImpl @Inject constructor(
                     else -> AppException.Unknown()
                 }
             )
-        } catch (_: Exception) {
+        } catch (e: Exception) {
+            Firebase.crashlytics.setCustomKey(CrashlyticsKeys.CITY, city)
+            Firebase.crashlytics.recordException(e)
             Result.failure(AppException.Unknown())
         }
     }
@@ -50,7 +55,9 @@ class WeatherRepositoryImpl @Inject constructor(
                 else -> AppException.Unknown()
             }
             )
-        } catch (_: Exception) {
+        } catch (e: Exception) {
+            Firebase.crashlytics.setCustomKey(CrashlyticsKeys.CITY, city)
+            Firebase.crashlytics.recordException(e)
             Result.failure(AppException.Unknown())
         }
     }

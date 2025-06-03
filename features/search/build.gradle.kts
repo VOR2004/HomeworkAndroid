@@ -63,6 +63,9 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     implementation(libs.converter.gson)
     implementation(libs.converter.scalars)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.crashlytics)
 
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)

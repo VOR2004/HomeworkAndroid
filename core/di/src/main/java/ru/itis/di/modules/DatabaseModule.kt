@@ -9,6 +9,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import ru.itis.data.local.database.RoomDatabase
 import ru.itis.data.local.dao.CityWeatherCacheDao
+import ru.itis.data.local.dao.PushMessageDao
 import javax.inject.Singleton
 
 @Module
@@ -30,4 +31,9 @@ object DatabaseModule {
     @Provides
     fun provideCityWeatherCacheDao(db: RoomDatabase): CityWeatherCacheDao =
         db.cityWeatherCacheDao()
+
+    @Provides
+    fun providePushMessageDao(db: RoomDatabase): PushMessageDao {
+        return db.pushMessageDao()
+    }
 }

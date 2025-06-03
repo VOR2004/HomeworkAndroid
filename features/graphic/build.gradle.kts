@@ -64,6 +64,9 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.converter.scalars)
     implementation(libs.kotlinx.collections.immutable)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.crashlytics)
 
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
