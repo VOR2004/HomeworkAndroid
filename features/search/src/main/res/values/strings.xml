@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="back_ds">Back</string>
+    <string name="search_ds">Search</string>
+    <string name="city_naming">Search</string>
+
+    <string name="city_name">City: %1$s</string>
+    <string name="temperature">Temperature, °C:&#160;</string>
+    <string name="description">Description:&#160;</string>
+</resources>
