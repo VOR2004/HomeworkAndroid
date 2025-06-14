@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_description">Description</string>
+    <string name="temperature">Temperature, °C:&#160;</string>
+    <string name="feels_like">Feels like, °C:&#160;</string>
+    <string name="pressure">Weather pressure, hPa:&#160;</string>
+    <string name="timezone">Timezone:&#160;</string>
+</resources>

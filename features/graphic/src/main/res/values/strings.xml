@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="build">Создать</string>
+    <string name="values">Значения (через запятую)</string>
+    <string name="count">Количество точек</string>
+    <string name="back">Назад</string>
+    <string name="title">ddssd</string>
+</resources>

@@ -7,6 +7,8 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.serialization)
     id("kotlin-parcelize")
     id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
+    id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
 }
 
 android {
@@ -33,14 +35,13 @@ android {
         }
     }
 
-    defaultConfig {
-        buildConfigField("String", "WEATHER_API_KEY", "\"${properties["WEATHER_API_KEY"]}\"")
-    }
-
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+    }
+    composeCompiler {
+        reportsDestination = layout.buildDirectory.dir("compose_compiler")
+        metricsDestination = layout.buildDirectory.dir("compose_compiler")
     }
     kotlinOptions {
         jvmTarget = "11"
@@ -61,6 +62,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.firebase.messaging.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -76,12 +78,17 @@ dependencies {
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.androidx.navigation.compose)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.crashlytics)
 
-    implementation(libs.retrofit)
-    implementation(libs.converter.kotlinx.serialization)
-    implementation(libs.converter.scalars)
-    implementation(libs.okhttp)
+    implementation(project(":features:search"))
+    implementation(project(":features:weatherdetails"))
+    implementation(project(":features:weatherlist"))
+    implementation(project(":features:graphic"))
 
-    implementation(libs.converter.gson)
-    implementation(libs.logging.interceptor)
+    implementation(project(":core:domain"))
+    implementation(project(":core:di"))
+    implementation(project(":core:data"))
+    implementation(project(":core:utils"))
 }
